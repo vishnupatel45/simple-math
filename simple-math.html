@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple calculation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: #739072;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+        }
+        #card{
+            width: 50vh;
+            background-color: #4F6F52;
+        }
+         @media screen and (orientation:portrait){
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            #card{
+                width: 50vh;
+            }
+         }
+    </style>
+    <script type="text/javascript">
+        var ans;
+        function changeSelection(){
+            var num1=document.getElementById("inpNumbera").value;
+            var num2=document.getElementById("inpNumberb").value;
+            var operation = document.getElementById("lplSelect").value;
+            switch (operation)
+            {
+                case "division":
+                    ans = num1/num2;
+                    break;
+                case "multiplication":
+                    ans = num1*num2;
+                    break;
+                case "Add":
+                    ans =parseFloat(num1)+parseFloat(num2);
+                    break;
+                case "Sub":
+                    ans =num1-num2;
+                    break;
+            }
+        }
+        function ansClick(){
+            document.getElementById("Result").innerText=` Your result is : ${ans}`;
+            
+        }
+    </script>
+</head>
+<body>
+    <div class="card p-2" id="card">
+        <div class="card-header">
+            <span class="card-title h2">Simple Calculation </span>
+        </div>
+        <div class="card-body">
+            <div>a = <input type="number" placeholder="Enter the value of a =" class="w-75" name="Avalue" id="inpNumbera" required></div><br>
+            <div>b = <input type="number" placeholder="Enter the value of b =" class="w-75" name="Bvalue" id="inpNumberb" required></div><br>
+                   <select name="operaters" id="lplSelect" class=" form-select w-50" style="margin-left: 20%;" onchange="changeSelection()">
+                    <option class="h3 bg-dark text-light">Select</option>
+                    <option>division</option>
+                    <option>multiplication</option>
+                    <option>Add</option>
+                    <option>Sub</option>
+                   </select>
+            
+        </div>
+        <div class="card-footer">
+            <button class="btn w-100" onclick="ansClick()" style="background-color: #ECE3CE;">Answer</button>
+            <p id="Result"></p>
+        </div>
+
+    </div>
+</body>
+</html>
